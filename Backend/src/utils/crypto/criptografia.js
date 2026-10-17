@@ -13,7 +13,7 @@ if(CHAVE.length !== 32){
 
 function criptografar(valor) {
     const iv = crypto.randomBytes(12); // vetor de inicialização
-    const cipher = cripto.createCipheriv(ALGORITIMO, CHAVE, iv);
+    const cipher = crypto.createCipheriv(ALGORITIMO, CHAVE, iv);
 
     const valorCriptografado = Buffer.concat([cipher.update(valor, "utf8"), cipher.final()]);
     const tag = cipher.getAuthTag();
